@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='grid.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-md-8">
+            <div class="servers online">
+                <h1>Online Sunucular</h1>
+                <h2>Online olan sunucular burada gözükür.</h2>
+                <ul>
+                </ul>
+
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="servers offline">
+                <h1>Offline Sunucular</h1>
+                <h2>Offline olan sunucular burada gözükür.</h2>
+                <ul>
+                </ul>
+
+            </div>
+        </div>
+        </div>
+
+
+
+    </div>
+
+
+
+    
+</body>
+
+
+
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+</html>
