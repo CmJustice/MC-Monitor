@@ -5,7 +5,7 @@ __author__ = 'Cem'
 from flask import *
 import mcstatus, yaml
 from mcstatus import MinecraftServer
-import os, datetime, threading, logging
+import os, threading
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
@@ -25,7 +25,7 @@ for server in config['Servers']:
 
 
 
-#Server querier
+#Pings the server and generates a json for javascript
 def genJson():
     allstats = []
     for server in serverlist:
@@ -52,7 +52,7 @@ def genJson():
         allstats.append(stats)
     return allstats
 
-#Making it async and run in background
+#Makes the genJson() function run in the background.
 def schedule_json():
     threading.Timer(5, schedule_json).start()
     global stats
@@ -76,4 +76,4 @@ schedule_json()
 
 
 if __name__ == "__main__":
-	app.run(host="0.0.0.0", port=8080, debug=True, threaded=True)
+	app.run(host="0.0.0.0", port=8080)
